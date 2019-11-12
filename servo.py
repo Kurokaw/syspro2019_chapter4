@@ -10,14 +10,23 @@ bottom = 2.5
 middle = 7.2
 top = 12.0
 
+#y = (4.75/90)x + 7.25
+def setservo(x):
+	if x>90:
+		servo.ChangeDutyCycle(top)
+	elif x<-90:
+		servo.ChangeDutyCycle(bottom)
+	else :
+		servo.ChangeDutyCycle((4.75/90)*x+7.25)
+
 for i in range(5):
-	servo.ChangeDutyCycle(bottom)
+	setservo(-90)
 	time.sleep(1.0)
 
-	servo.ChangeDutyCycle(middle)
+	setservo(90)
 	time.sleep(1.0)
 
-	servo.ChangeDutyCycle(top)
+	setservo(10)
 	time.sleep(1.0)
 
 
